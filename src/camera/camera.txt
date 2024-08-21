@@ -1,0 +1,41 @@
+References:
+https://www.npmjs.com/package/react-webcam
+https://react.dev/reference/react/useState
+https://react.dev/reference/react/useEffect
+AI based browser queries
+
+VideoConstraints:
+    Predifined constraints for video input
+    sets for a 720p image from the user-facing camera (if applicable)
+
+WebcamCapture Functional Component:
+
+    Screen Size Shinnanigans region:
+
+        const [dimensions, setDimensions] is used for setting the initial state. It is used as an anonymous object
+        so that it doesn't take up room on memory, as an object would not be referenced in the future.
+            By using the useState hook on this section, we create a state based value for the parent functional component
+            that will hold the width and height of the screen.
+
+        The handleResize effect is used for triggering a section of code on the resize event. "Resize" is an event that 
+        is tracked by native JS and core html5.
+            the constant handleResize is the listener that will trigger
+            The setDimensions method is imported from useState, and takes in arguements for both the width and height
+        
+        the adding and removal of listeners is for many reasons including memory-leak avoidal, and prevention of
+        potentially stacking many listeners on one functional component
+
+        the [] is an dependancy array. This, when specified, will insure that an effect only runs based on dependancy values.
+        Because we don't have any value based restrictions in this case, the dependancy array is empty.
+
+    Webcam JSX Prop:
+        Sets audio as false, as we don't need audio for a screenshot
+        sets height equal to the dimension-state height
+        sets width equal to the dimension-state width
+        sets the image format equal to jpg
+        Sets video constraints equal to pre-defined video constraints
+
+     getScreenshot is a function inside of the prop jsx. The syntax here is a little wild because it is seeded
+     inside of jsx, just ignore the excessive parenthetics and bracketry.
+        the getScreenshot function creates and sets a listener for a button that triggers the getScreenshot method
+        provided by react-webcam.   
