@@ -1,5 +1,9 @@
 import './WebcamControl.css';
 
+function clickMe() {
+    alert("You clicked me!");
+  }
+
 function App() {
   return (<
     div>
