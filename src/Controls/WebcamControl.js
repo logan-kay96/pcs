@@ -1,4 +1,5 @@
 import './WebcamControl.css';
+import camera from './src/camera/camera';
 
 function clickMe() {
     alert("You clicked me!");
